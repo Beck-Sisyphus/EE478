@@ -3,7 +3,7 @@
 #include <p18f25k22.h>
 #include <adc.h>
 #include <timers.h>
-#include "lab2.h"
+#include "slaveDefine.h"
 
 int getTemp(){
     int Tempresult;
