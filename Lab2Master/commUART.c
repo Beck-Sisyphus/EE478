@@ -11,6 +11,9 @@
 #include <delays.h>
 
 #define BAUD_9600_20MHz 129
+#define BAUD_9600_4MHz 25
+
+extern void delay(int aDelay);
 
 void UART_init(){
     // PIN A0 is  temp[0]In, A1 is bp1In, A2 is bp2In, A3 is pulseIn
@@ -35,7 +38,7 @@ void UART_init(){
             USART_EIGHT_BIT   &
             //USART_CONT_RX     &
             USART_BRGH_HIGH, 
-            BAUD_9600_20MHz);   //Set Baud Rate here  Fosc / (64 * (spbrg + 1))
+            BAUD_9600_4MHz);   //Set Baud Rate here  Fosc / (64 * (spbrg + 1))
 
     Write1USART(0x0c);   // clear hyperterminal
 }
@@ -46,25 +49,25 @@ void UART_write(char* commandPtr, char* readingPtr)
     
     if (commandPtr[0] == 'p') {
         // read the pulse
-        temp[0] = pulseRate();
+        // temp[0] = pulseRate();
         sprintf(readingPtr,"Pulse: %02u \n", temp[0]);
         delay(1000);
     }
     else if (commandPtr[0] == 's') {
         // read the systolic
-        temp[0] = bloodPres1();
+        // temp[0] = bloodPres1();
         sprintf(readingPtr,"Syst: %02u \n", temp[0]);
         delay(1000);
     }
     else if (commandPtr[0] == 'd') {
         // read the diastolic
-        temp[0] = bloodPres2();
+        // temp[0] = bloodPres2();
         sprintf(readingPtr,"Diast: %02u \n", temp[0]);
         delay(1000);
     }
     else if (commandPtr[0] == 't') {
         // read the temp[0]
-        temp[0] = getTemp[0]();
+        // temp[0] = getTemp[0]();
         sprintf(readingPtr,"Temp[0]: %02u \n", temp[0]);
         delay(1000);
     }
@@ -77,10 +80,10 @@ void UART_read(char* commandPtr)
 }
 
 // Timer
-void delay(int count) 
+void delay(int aDelay)
 {
   int i, j;
-  for (i = 0; i < count; ++i)
+  for (i = 0; i < aDelay; ++i)
   {
     for (j = 0; j < 50; ++j)
     {

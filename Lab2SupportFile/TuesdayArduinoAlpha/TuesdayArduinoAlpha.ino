@@ -26,8 +26,8 @@
 
  */
  
+#define txPin 13 
 #define rxPin 12
-#define txPin 13
 #include <SoftwareSerial.h>
 
 SoftwareSerial mySerial (rxPin, txPin);// RX, TX
