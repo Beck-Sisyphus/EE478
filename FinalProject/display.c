@@ -21,9 +21,9 @@ void delay(int);
 
 void display_init()
 {
-  GPIO_setAsOutputPin(2, GPIO_PIN7);
-  GPIO_setAsOutputPin(2, GPIO_PIN6);
-  GPIO_setAsOutputPin(2, GPIO_PIN4);
+  GPIO_setAsOutputPin(3, GPIO_PIN0);  //moving from 2.7 to 3.0
+  GPIO_setAsOutputPin(5, GPIO_PIN7);  //moving from 2.6 to 5.7
+  GPIO_setAsOutputPin(1, GPIO_PIN6);  //moving from 2.4 to 1.6
   GPIO_setAsOutputPin(5, GPIO_PIN6);
   GPIO_setAsOutputPin(6, GPIO_PIN6);
   GPIO_setAsOutputPin(6, GPIO_PIN7);
@@ -58,7 +58,7 @@ void clear_display()
 
   delay(25);
 
-  GPIO_setOutputHighOnPin(2, GPIO_PIN7);
+  GPIO_setOutputHighOnPin(3, GPIO_PIN0);
 
   delay(25);
 
@@ -92,9 +92,9 @@ void entry_mode(int INC, int S)
 
   delay(5);
 
-  if (S)    GPIO_setOutputHighOnPin(2, GPIO_PIN7);
-  if (INC)  GPIO_setOutputHighOnPin(2, GPIO_PIN6);
-  GPIO_setOutputHighOnPin(2, GPIO_PIN4);
+  if (S)    GPIO_setOutputHighOnPin(3, GPIO_PIN0);
+  if (INC)  GPIO_setOutputHighOnPin(5, GPIO_PIN7);
+  GPIO_setOutputHighOnPin(1, GPIO_PIN6);
 
   delay(5);
 
@@ -113,7 +113,7 @@ void cd_shift(int SC, int RL)
 
   delay(5);
 
-  if (RL) GPIO_setOutputHighOnPin(2, GPIO_PIN4);
+  if (RL) GPIO_setOutputHighOnPin(1, GPIO_PIN6);
   if (SC) GPIO_setOutputHighOnPin(5, GPIO_PIN6);
   GPIO_setOutputHighOnPin(6, GPIO_PIN6);
 
@@ -135,9 +135,9 @@ void display_on(int ON, int CURSOR, int BLINK)
 
   delay(5);
 
-  if (BLINK)  GPIO_setOutputHighOnPin(2, GPIO_PIN7);
-  if (CURSOR) GPIO_setOutputHighOnPin(2, GPIO_PIN6);
-  if (ON)     GPIO_setOutputHighOnPin(2, GPIO_PIN4);
+  if (BLINK)  GPIO_setOutputHighOnPin(3, GPIO_PIN0);
+  if (CURSOR) GPIO_setOutputHighOnPin(5, GPIO_PIN7);
+  if (ON)     GPIO_setOutputHighOnPin(1, GPIO_PIN6);
   GPIO_setOutputHighOnPin(5, GPIO_PIN6);
 
   delay(5);
@@ -157,9 +157,9 @@ void set_address(int D6, int D5, int D4, int D3, int D2, int D1, int D0)
 
   delay(25);
 
-  if (D0) GPIO_setOutputHighOnPin(2, GPIO_PIN7); //^
-  if (D1) GPIO_setOutputHighOnPin(2, GPIO_PIN6); //|
-  if (D2) GPIO_setOutputHighOnPin(2, GPIO_PIN4); //|
+  if (D0) GPIO_setOutputHighOnPin(3, GPIO_PIN0); //^
+  if (D1) GPIO_setOutputHighOnPin(5, GPIO_PIN7); //|
+  if (D2) GPIO_setOutputHighOnPin(1, GPIO_PIN6); //|
   if (D3) GPIO_setOutputHighOnPin(5, GPIO_PIN6); //|
   if (D4) GPIO_setOutputHighOnPin(6, GPIO_PIN6); //|
   if (D5) GPIO_setOutputHighOnPin(6, GPIO_PIN7); //|
@@ -183,7 +183,7 @@ void function_set(int LINES, int FONT)
 
   delay(25);
 
-  if (FONT)   GPIO_setOutputHighOnPin(2, GPIO_PIN4);
+  if (FONT)   GPIO_setOutputHighOnPin(1, GPIO_PIN6);
   if (LINES)  GPIO_setOutputHighOnPin(5, GPIO_PIN6);
   GPIO_setOutputHighOnPin(6, GPIO_PIN6);
   GPIO_setOutputHighOnPin(6, GPIO_PIN7);
@@ -221,9 +221,9 @@ void write(char c, int RS)
 
   delay(1);
 
-  if (data & BIT0) GPIO_setOutputHighOnPin(2, GPIO_PIN7); //                ^
-  if (data & BIT1) GPIO_setOutputHighOnPin(2, GPIO_PIN6); //                |
-  if (data & BIT2) GPIO_setOutputHighOnPin(2, GPIO_PIN4); //Sets data to the character value passed in.
+  if (data & BIT0) GPIO_setOutputHighOnPin(3, GPIO_PIN0); //                ^
+  if (data & BIT1) GPIO_setOutputHighOnPin(5, GPIO_PIN7); //                |
+  if (data & BIT2) GPIO_setOutputHighOnPin(1, GPIO_PIN6); //Sets data to the character value passed in.
   if (data & BIT3) GPIO_setOutputHighOnPin(5, GPIO_PIN6); //                |
   if (data & BIT4) GPIO_setOutputHighOnPin(6, GPIO_PIN6); //                |
   if (data & BIT5) GPIO_setOutputHighOnPin(6, GPIO_PIN7); //                |
@@ -238,9 +238,9 @@ void write(char c, int RS)
 // clearup pins output
 void clear_pins()
 {
-  GPIO_setOutputLowOnPin(2, GPIO_PIN7);
-  GPIO_setOutputLowOnPin(2, GPIO_PIN6);
-  GPIO_setOutputLowOnPin(2, GPIO_PIN4);
+  GPIO_setOutputLowOnPin(3, GPIO_PIN0);
+  GPIO_setOutputLowOnPin(5, GPIO_PIN7);
+  GPIO_setOutputLowOnPin(1, GPIO_PIN6);
   GPIO_setOutputLowOnPin(5, GPIO_PIN6);
   GPIO_setOutputLowOnPin(6, GPIO_PIN6);
   GPIO_setOutputLowOnPin(6, GPIO_PIN7);

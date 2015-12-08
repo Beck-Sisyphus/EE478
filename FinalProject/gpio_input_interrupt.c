@@ -49,12 +49,25 @@ int main(void){
     MAP_GPIO_enableInterrupt(GPIO_PORT_P1, GPIO_PIN1);
     MAP_Interrupt_enableInterrupt(INT_PORT1);
 
-    /*Initialize Sensor Ports  7.0-7.3   In Progress!!!
-    MAP_GPIO_setAsInputPinWithPullUpResistor(GPIO_PORT_P7, GPIO_PIN0);
-    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P7, GPIO_PIN0;
-    MAP_GPIO_enableInterrupt(GPIO_PORT_P7, GPIO_PIN0);
-    MAP_Interrupt_enableInterrupt(INT_PORT1);
-    /*
+    /*Initialize Sensor Ports  2.4-2.7   In Progress!!! */
+    MAP_GPIO_setAsInputPinWithPullDownResistor(GPIO_PORT_P2, GPIO_PIN4);
+    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P2, GPIO_PIN4);
+    MAP_GPIO_enableInterrupt(GPIO_PORT_P2, GPIO_PIN4);
+
+    MAP_GPIO_setAsInputPinWithPullDownResistor(GPIO_PORT_P2, GPIO_PIN5);
+    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P2, GPIO_PIN5);
+    MAP_GPIO_enableInterrupt(GPIO_PORT_P2, GPIO_PIN5);
+
+    MAP_GPIO_setAsInputPinWithPullDownResistor(GPIO_PORT_P2, GPIO_PIN6);
+    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P2, GPIO_PIN6);
+    MAP_GPIO_enableInterrupt(GPIO_PORT_P2, GPIO_PIN6);
+
+    MAP_GPIO_setAsInputPinWithPullDownResistor(GPIO_PORT_P2, GPIO_PIN7);
+    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P2, GPIO_PIN7);
+    MAP_GPIO_enableInterrupt(GPIO_PORT_P2, GPIO_PIN7);
+
+    MAP_Interrupt_enableInterrupt(INT_PORT2);
+
 
     /* Enabling SRAM Bank Retention */
     MAP_SysCtl_enableSRAMBankRetention(SYSCTL_SRAM_BANK1);
@@ -65,7 +78,7 @@ int main(void){
     switch_init();
     display_init();
     clear_display();
-    displayString("It's Working!");
+    displayString("abcABC");
 
     while (1)
     {
@@ -89,9 +102,11 @@ void gpio_isr(void)
     uint32_t status;
     status = MAP_GPIO_getEnabledInterruptStatus(GPIO_PORT_P1);
     MAP_GPIO_clearInterruptFlag(GPIO_PORT_P1, status);
-    clear_display();
-    displayString("Switch Flipped!");
     newSwitch1 = oldSwitch1^1;
+    //newSwitch2 = oldSwitch2^1;
+    //newSwitch3 = oldSwitch3^1;
+    //newSwitch4 = oldSwitch4^1;
+    //newSwitch5 = oldSwitch5^1;
 }
 
 /* Calendar Stuffs */
