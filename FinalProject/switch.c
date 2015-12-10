@@ -69,19 +69,6 @@ void switch_init(){
 	MAP_GPIO_setOutputLowOnPin (GPIO_PORT_P7, GPIO_PIN7);
 }
 
-/*
-//update check, put inside main while(1)
-if (oldSwitch1!=newSwitch1 ||
-	oldSwitch2!=newSwitch2 ||
-	oldSwitch3!=newSwitch3 ||
-	oldSwitch4!=newSwitch4 ||
-	oldSwitch5!=newSwitch5 )
-{
-	updateSwitches();
-}
-*/
-
-
 //update function
 void updateSwitches(){
 	int ii;
