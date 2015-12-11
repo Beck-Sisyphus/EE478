@@ -106,8 +106,7 @@ void setup() {
     
     //pin 2.7(40) interrupt for temp and humanidity sensor
     //pin 2.6(39) 2.4(38) for door/window interrupt
-    // MAP_GPIO_setAsInputPinWithPullUpResistor(GPIO_PORT_P2, GPIO_PIN7);
-    pinMode(40, INPUT_PULLUP);
+    MAP_GPIO_setAsInputPinWithPullUpResistor(GPIO_PORT_P2, GPIO_PIN7);
     attachInterrupt(39, gpio_isr, FALLING);
     attachInterrupt(38, gpio_isr, FALLING);
     
