@@ -162,6 +162,7 @@ double idDHT11::getDewPoint() {
 	return Td;
 	
 }
+/*
 // dewPoint function NOAA
 // reference: http://wahiduddin.net/calc/density_algorithms.htm 
 double idDHT11::getDewPointSlow() {
@@ -176,4 +177,5 @@ double idDHT11::getDewPointSlow() {
 	double T = log(VP/0.61078);   // temp var
 	return (241.88 * T) / (17.558-T);
 }
+*/
 // EOF

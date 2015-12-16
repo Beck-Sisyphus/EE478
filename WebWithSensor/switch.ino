@@ -46,8 +46,8 @@ void switch_init(){
 	MAP_GPIO_setOutputLowOnPin (GPIO_PORT_P10, GPIO_PIN3);
 
 	//switch3on pin 10.4
-	MAP_GPIO_setAsOutputPin(GPIO_PORT_P10, GPIO_PIN4);
-	MAP_GPIO_setOutputLowOnPin (GPIO_PORT_P10, GPIO_PIN4);
+	//MAP_GPIO_setAsOutputPin(GPIO_PORT_P10, GPIO_PIN4);
+	//MAP_GPIO_setOutputLowOnPin (GPIO_PORT_P10, GPIO_PIN4);
 
 	//switch3off pin 10.5
 	MAP_GPIO_setAsOutputPin(GPIO_PORT_P10, GPIO_PIN5);

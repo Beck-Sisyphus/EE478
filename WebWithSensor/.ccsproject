@@ -10,6 +10,6 @@
 	<rts value=""/>
 	<createSlaveProjects value=""/>
 	<ignoreDefaultDeviceSettings value="true"/>
-	<origin value="@root/energia-0101E0016/hardware/msp432/libraries/WiFi/examples/SimpleWebServerWiFi/SimpleWebServerWiFi.ino"/>
-	<filesToOpen value="SimpleWebServerWiFi.ino,"/>
+	<origin value="@workspace/EE478/WebWithSensor/WebWithSensor.ino"/>
+	<filesToOpen value="display.ino,switch.ino,WebWithSensor.ino,"/>
 </projectOptions>
